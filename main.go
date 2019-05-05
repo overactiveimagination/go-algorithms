@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"os"
 )
 
 func quickSort(randomNumbers []int, low int, high int) []int {
@@ -49,7 +50,12 @@ func partition(arr []int, low int, high int) int {
 }
 
 func main() {
+	args := os.Args[1:]
+	sortType := args[0]
 	sampleArray := []int{1, 4, 0, 2}
-	quickSort(sampleArray, 0, len(sampleArray)-1)
-	fmt.Print(sampleArray)
+	switch sortType {
+	case "quickSort":
+		quickSort(sampleArray, 0, len(sampleArray)-1)
+	}
+	fmt.Printf("Sorted array: %v", sampleArray)
 }
