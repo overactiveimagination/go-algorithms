@@ -7,7 +7,7 @@ func QuickSort(randomNumbers []int, low int, high int) []int {
 	if len(randomNumbers) > 1 {
 		index := partition(randomNumbers, low, high)
 
-		if low > index-1 {
+		if low < index-1 {
 			QuickSort(randomNumbers, low, index-1)
 		}
 
@@ -31,13 +31,11 @@ func partition(arr []int, low int, high int) int {
 		}
 
 		for arr[j] > pivot {
-			j++
+			j--
 		}
 
 		if i <= j {
-			tempI := arr[int(i)]
-			arr[int(i)] = arr[int(j)]
-			arr[int(j)] = tempI
+			arr[int(i)], arr[int(j)] = arr[int(j)], arr[int(i)]
 			j--
 			i++
 		}
