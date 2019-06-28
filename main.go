@@ -11,9 +11,12 @@ func main() {
 	args := os.Args[1:]
 	sortType := args[0]
 	sampleArray := []int{1, 4, 2, 0}
+	var result []int
 	switch sortType {
 	case "quickSort":
-		algorithms.QuickSort(sampleArray, 0, len(sampleArray)-1)
+		result = algorithms.QuickSort(sampleArray, 0, len(sampleArray)-1)
+	case "mergeSort":
+		result = algorithms.MergeSort(sampleArray)
 	}
-	fmt.Printf("Sorted array: %v", sampleArray)
+	fmt.Printf("Sorted array: %v", result)
 }
